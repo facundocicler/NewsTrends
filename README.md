@@ -1,6 +1,6 @@
-# 📰 News Trends Argentina
+# 📰 News Trends
 
-Un pipeline automatizado que recolecta noticias político-económicas de Argentina, las analiza con NLP, las almacena en MongoDB Atlas y envía alertas relevantes por AWS SNS. El dashboard visual está disponible vía Streamlit Cloud.
+Un pipeline automatizado que recolecta noticias en Política, Economía, Seguridad y Temas Sociales, las analiza con NLP, las almacena en MongoDB Atlas y envía alertas relevantes por AWS SNS. El dashboard visual está disponible vía Streamlit Cloud.
 
 ![dashboard-screenshot](assets/dashboard_preview.png)
 
@@ -81,9 +81,9 @@ docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/$REPO_NAME:$IM
 6. Agregá el archivo config.json con:
 ```json
 {
-  "api_key": "...",
-  "mongo_uri": "...",
-  "sns_topic_arn": "...",
+  "api_key": "API_KEY",
+  "mongo_uri": "URI_MONGODB_ATLAS",
+  "sns_topic_arn": "SNS_ARN",
   "country": "ar",
   "lang": "es"
 }
@@ -103,10 +103,8 @@ https://TU_USUARIO.streamlit.app/
 
 ---
 
-### 📎 Estructura del repositorio
-
-```md
 ## 📁 Estructura del repositorio
+```md
 
 news-trends-project/
 ├── lambda/
@@ -124,9 +122,16 @@ news-trends-project/
 │   ├── requirements.txt
 │   └── .streamlit/
 │       └── secrets.toml
+│
+├── assets/
+│   ├── dashboard_preview.png
+│   ├── architecture_diagram.png
+│   ├── news_table.png
+│   └── keywords_chart.png
+│
+└── README.md
 ```
 
-```md
 ## 👤 Autor
 
 **Facundo Cicler**  
