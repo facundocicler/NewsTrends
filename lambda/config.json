@@ -1,7 +1,0 @@
-{
-  "api_key": "a78db0126e583106d53c977a8a31a1f1",
-  "mongo_uri": "mongodb+srv://cicler:ODlQNCEqTxm0xzj0@newtrendsarg.gygg4fb.mongodb.net/news_db?retryWrites=true&w=majority&tls=true",
-  "sns_topic_arn": "arn:aws:sns:us-east-2:252312373981:NewsTrendsArg-Alert",
-  "country": "ar",
-  "lang": "es"
-}
