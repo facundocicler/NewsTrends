@@ -68,12 +68,17 @@ docker tag $REPO_NAME:$IMAGE_TAG ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazona
 docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/$REPO_NAME:$IMAGE_TAG
 ```
 
-3. Usá esa imagen para una función Lambda con:
+4. Crea un rol IAM para la función Lambda:
+   - Crea un nuevo rol IAM en la consola de IAM de AWS.
+   - Asigna la política `AWSLambdaBasicExecutionRole` para permitir a la función Lambda escribir registros en CloudWatch Logs.
+   - Asigna la política `AmazonSNSFullAccess` para permitir a la función Lambda escribir registros en CloudWatch Logs.
+
+5. Usá esa imagen para una función Lambda con:
 * Timeout: 3 min
 * Memoria: 512 MB o más
 * Trigger diario con EventBridge
 
-4. Agregá el archivo config.json con:
+6. Agregá el archivo config.json con:
 ```json
 {
   "api_key": "...",
@@ -92,9 +97,9 @@ docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/$REPO_NAME:$IM
 3. Pegá los secretos desde .streamlit/secrets.toml
 
 4. Accedé a tu dashboard público en:
-
+```bash
 https://TU_USUARIO.streamlit.app/
-
+```
 
 ---
 
