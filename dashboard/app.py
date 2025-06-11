@@ -28,14 +28,26 @@ st.subheader("Últimas Noticias")
 st.dataframe(df[["publishedAt", "title", "keywords"]].sort_values("publishedAt", ascending=False).head(cantidad), use_container_width=True)
 
 st.subheader("📊 Palabras clave más mencionadas")
+
 keywords = df["keywords"].explode().dropna()
 top_keywords = Counter(keywords).most_common(10)
 
 if top_keywords:
     labels, values = zip(*top_keywords)
-    fig, ax = plt.subplots()
-    ax.barh(labels, values, color="skyblue")
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+    bars = ax.barh(labels, values, color="mediumseagreen")
     ax.invert_yaxis()
+    ax.set_xlabel("Frecuencia")
+    ax.set_title("Top 10 palabras clave detectadas")
+
+    # Mostrar valor exacto al lado de cada barra
+    for bar in bars:
+        ax.text(bar.get_width() + 0.2, bar.get_y() + bar.get_height() / 2,
+                str(int(bar.get_width())),
+                va='center')
+
     st.pyplot(fig)
 else:
+    st.info("No hay palabras clave detectadas.")
     st.info("No hay palabras clave detectadas.")
