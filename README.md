@@ -71,7 +71,7 @@ docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/$REPO_NAME:$IM
 4. Crea un rol IAM para la función Lambda:
    - Crea un nuevo rol IAM en la consola de IAM de AWS.
    - Asigna la política `AWSLambdaBasicExecutionRole` para permitir a la función Lambda escribir registros en CloudWatch Logs.
-   - Asigna la política `AmazonSNSFullAccess` para permitir a la función Lambda escribir registros en CloudWatch Logs.
+   - Asigna la política `AmazonSNSFullAccess` para permitir a la función Lambda interactuar con Amazon SNS, como publicar mensajes para alertas.
 
 5. Usá esa imagen para una función Lambda con:
 * Timeout: 3 min
